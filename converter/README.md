@@ -1,4 +1,4 @@
-**Liero LWP to lierolibre CFG Converter by KangaRoo (current version: 0.9)**
+**Liero LWP to lierolibre CFG Converter by KangaRoo (current version: 0.91)**
 ---------------------------------------------------
 
 0. [LICENCE](#0-licence)
@@ -52,7 +52,7 @@ To use the converter, you must:
 - mark the "LieroM8 plugin" option if your selected LWP file is compatible with LieroM8 (see more explanations below)
 - click the second "browse file" button (below the "LieroM8 plugin" option) and load the .txt "header" file from your HDD (which you can find in this directory)
 - click the "Convert" button
-- if the conversion is successful, the converted file will be saved on your HDD as "liero.cfg"
+- if the conversion is successful, the converted file will be saved on your HDD as "lierocfg.txt"
 
 There are two ways to run your CFG file with lierolibre:
 
@@ -79,6 +79,9 @@ Big thanks also goes to:
 - Munakas (for giving me inspiration to make this converter)
 
 ## *5. CHANGELOG*
+
+07.07.2024 - version 0.91
+- change the name & format of the converted file
 
 02.07.2024 - version 0.9
 - initial commit

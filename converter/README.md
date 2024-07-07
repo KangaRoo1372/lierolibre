@@ -32,7 +32,7 @@ d) readme.md (this file you're reading right now xD)
 
 [Liero](http://liero.be/) is a classic freeware 1998 DOS game, a 2D arena top-down shooter in which you control a worm armed with 5 guns and a ninja rope.
 
-[lierolibre](https://www.webliero.com/) is a direct fork (clone) of Liero 1.35b, created by Martin Erik Werner and released in 2012.
+[lierolibre](https://gitlab.com/lierolibre/lierolibre) is a direct fork (clone) of Liero 1.35b, created by Martin Erik Werner and released in 2012.
 
 **1.1.1. What is Liero Weapon Plugin?**
 
@@ -57,7 +57,7 @@ To use the converter, you must:
 There are two ways to run your CFG file with lierolibre:
 
 - replace the 'user\lierocfg.txt' file with your converted file (remember to make a back-up copy of the original file)
-- put the converted file into a new separate folder with all other necessary data files (i.e. Liero.chr, Liero.dat, Liero.snd and Names.dat) and run it using lierolibre-cmd.bat file with a command line _lierolibre.exe -f path\to\yourmod.txt_.
+- put the converted file into a new separate folder with all other necessary data files (i.e. Liero.chr, Liero.dat, Liero.snd and Names.dat) and run it using lierolibre-cmd.bat file with a command _lierolibre.exe -f path\to\yourmod.txt_.
 
 The "LieroM8 plugin" option must be marked only if the .lwp file is compatible with [LieroM8](https://liero.nl/download/286/lm8v192.zip), because such plugins have got different object / special object order values (starting from 0, not 1). Fortunately, most original LWP files were created using [LieroKit](https://liero.nl/download/295/lierokit16b2.zip) so in 99% cases you don't need to use this option.
 
@@ -70,7 +70,7 @@ The "LieroM8 plugin" option must be marked only if the .lwp file is compatible w
 
 ## *4. CREDITS*
 
-As it was written before, the code of this program was created with help of ChatGPT (which generated circa 80% of the code), so big thanks for ChatGPT engineers and creators.
+As it was written before, the code of this program was created with help of ChatGPT (which generated circa 90% of the code), so big thanks for ChatGPT engineers and creators.
 
 Big thanks also goes to:
 

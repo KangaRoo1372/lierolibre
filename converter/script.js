@@ -1,5 +1,7 @@
 document.getElementById('convertButton').addEventListener('click', function() {
     const fileInput = document.getElementById('fileInput');
+    const warningProperties = document.getElementById("warning");
+    warningProperties.style.display = "none";
     if (fileInput.files.length === 0 || headerInput.files.length === 0) {
         alert('Please select both files.');
         return;
@@ -133,7 +135,7 @@ document.getElementById('convertButton').addEventListener('click', function() {
 
         const booleanParams = [
             'WORMAFFECT', 'WORMREMOVE', 'GROUNDEXPLODE', 'OBJECTCOLLIDE', 'EXPLODEAFFECT', 
-            'WORMEXPLODE', 'LASERSIGHT', 'ANIMLOOP','SHADOW', 'RELOADSOUND','GROUNDREMOVE',                  'DRAWOBJECT', 'BTRAIL'
+            'WORMEXPLODE', 'LASERSIGHT', 'ANIMLOOP','SHADOW', 'RELOADSOUND','GROUNDREMOVE', 'DRAWOBJECT', 'BTRAIL'
         ];
 
         const calculateParams = [
@@ -168,6 +170,35 @@ document.getElementById('convertButton').addEventListener('click', function() {
         });
         if (currentGroup) groups[groupType].push(currentGroup);
 
+        // Check for missing required parameters
+        const requiredWParams = Object.keys(WparamMap);
+        const requiredOParams = Object.keys(NparamMap);
+        const requiredSParams = Object.keys(SparamMap);
+        groups.weapons.forEach(weapon => {
+            requiredWParams.forEach(param => {
+                    if (!weapon.params.hasOwnProperty(param) && param !== 'SHELLDELAY' && param !== 'RELOADSOUND') {
+                        console.log(`Missing parameter ${param} in weapon ${weapon.WEAPON -1}`);
+                        warningProperties.style.display = "block";
+                    }
+                });
+            });
+        groups.sobjectTypes.forEach(sobject => {
+            requiredSParams.forEach(param => {
+                    if (!sobject.params.hasOwnProperty(param)) {
+                        console.log(`Missing parameter ${param} in sobjectType ${sobject.SOBJECT -1}`);
+                        warningProperties.style.display = "block";
+                    }
+                });
+            });
+        groups.nobjectTypes.forEach(nobject => {
+            requiredOParams.forEach(param => {
+                    if (!nobject.params.hasOwnProperty(param) && param !== 'EXPLODEAFFECT') {
+                        console.log(`Missing parameter ${param} in nobjectType ${nobject.OBJECT -1}`);
+                        warningProperties.style.display = "block";
+                    }
+                });
+            });
+
         // Add weapOrder entries
         groups.weapons.forEach(weapon => {
             cfgContent += `    weapOrder${weapon.WEAPON} = ${weapon.params.ORDER - 1};\n`;
@@ -179,14 +210,14 @@ document.getElementById('convertButton').addEventListener('click', function() {
         groups.weapons.forEach(weapon => {
             cfgContent += `      weapons${weapon.WEAPON - 1} : \n      {\n`;
 
-	// Add missing parameters
-                if (!weapon.params['SHELLDELAY']) {
+	    // Add missing parameters
+            if (!weapon.params['SHELLDELAY']) {
                     let convertedParam = WparamMap['SHELLDELAY'];
                     let convertedValue = weapon.params['SHELLDELAY'];
                     cfgContent += `        ${convertedParam} = 0;\n`;
                 }
 
-                if (!weapon.params['RELOADSOUND']) {
+            if (!weapon.params['RELOADSOUND']) {
                     let convertedParam = WparamMap['RELOADSOUND'];
                     let convertedValue = weapon.params['RELOADSOUND'];
                     cfgContent += `        ${convertedParam} = false;\n`;

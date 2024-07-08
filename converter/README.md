@@ -1,4 +1,4 @@
-**Liero LWP to lierolibre CFG Converter by KangaRoo (current version: 0.91)**
+**Liero LWP to lierolibre CFG Converter by KangaRoo (current version: 0.92)**
 ---------------------------------------------------
 
 0. [LICENCE](#0-licence)
@@ -79,6 +79,9 @@ Big thanks also goes to:
 - Munakas (for giving me inspiration to make this converter)
 
 ## *5. CHANGELOG*
+
+08.07.2024 - version 0.92
+- add a warning message displayed when converted mod is missing any required parameters
 
 07.07.2024 - version 0.91
 - change the name & format of the converted file

@@ -1,7 +1,9 @@
 document.getElementById('convertButton').addEventListener('click', function() {
     const fileInput = document.getElementById('fileInput');
     const warningProperties = document.getElementById("warning");
+    const warningObjects = document.getElementById("warningobj");
     warningProperties.style.display = "none";
+    warningObjects.style.display = "none";
     if (fileInput.files.length === 0 || headerInput.files.length === 0) {
         alert('Please select both files.');
         return;
@@ -174,6 +176,23 @@ document.getElementById('convertButton').addEventListener('click', function() {
         const requiredWParams = Object.keys(WparamMap);
         const requiredOParams = Object.keys(NparamMap);
         const requiredSParams = Object.keys(SparamMap);
+
+        if (groups.weapons.length!=40) {
+            console.log(`The mod has got ${groups.weapons.length} weapons, should be 40`);
+            warningObjects.style.display = "block";
+        }
+        if (groups.nobjectTypes.length!=24) {
+            console.log(`The mod has got ${groups.nobjectTypes.length} nObjects, should be 24`);
+            warningObjects.style.display = "block";
+        }
+        if (groups.sobjectTypes.length!=14) {
+            if (groups.sobjectTypes.length===0) console.log("No sObjects section detected, adding fixed data");
+            else {
+                console.log(`The mod has got ${groups.sobjectTypes.length} sObjects, should be 14`);
+                warningObjects.style.display = "block";
+            }
+        }
+
         groups.weapons.forEach(weapon => {
             requiredWParams.forEach(param => {
                     if (!weapon.params.hasOwnProperty(param) && param !== 'SHELLDELAY' && param !== 'RELOADSOUND') {

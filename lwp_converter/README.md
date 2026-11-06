@@ -1,4 +1,4 @@
-**Liero LWP to lierolibre CFG Converter by KangaRoo (current version: 0.92)**
+**Liero LWP to lierolibre CFG Converter by KangaRoo (current version: 0.93)**
 ---------------------------------------------------
 
 0. [LICENCE](#0-licence)
@@ -54,6 +54,7 @@ To use the converter, you must:
 - click the "Convert" button
 - if the conversion is successful, the converted file will be saved on your HDD as "lierocfg.txt"
 - if any parameters are missing or have undefined values, a warning message will be displayed below the "Convert" button; in that case, a list of missing properties will be printed in the console, so that you check and track it easily
+- if the converted mod contains a number of objects that is inconsistent with their fixed number (i.e. less or more than 40 weapons / 24 nObjects / 14 sObjects), a warning message will be displayed below the "Convert" button and also printed in the console
 
 There are two alternative ways to run your CFG file with lierolibre:
 
@@ -82,6 +83,9 @@ Big thanks also goes to:
 - Munakas (for giving me inspiration to make this converter)
 
 ## *5. CHANGELOG*
+
+06.11.2026 - version 0.93
+- add a warning message displayed when converted mod has got wrong amount of objects
 
 08.07.2024 - version 0.92
 - add a warning message displayed when converted mod is missing any required parameters

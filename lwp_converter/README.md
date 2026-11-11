@@ -52,7 +52,7 @@ To use the converter, you must:
 - mark the "LieroM8 plugin" option if your selected LWP file is compatible with LieroM8 (see more explanations below)
 - click the second "browse file" button (below the "LieroM8 plugin" option) and load the .txt "header" file from your HDD (which you can find in this directory)
 - click the "Convert" button
-- if the conversion is successful, the converted file will be saved on your HDD as "lierocfg.txt"
+- click the download link ("Download converted file") to save the converted file on your HDD (lierocfg.txt)
 - if any parameters are missing or have undefined values, a warning message will be displayed below the "Convert" button; in that case, a list of missing properties will be printed in the console, so that you check and track it easily
 - if the converted mod contains a number of objects that is inconsistent with their fixed number (i.e. less or more than 40 weapons / 24 nObjects / 14 sObjects), a warning message will be displayed below the "Convert" button and also printed in the console
 

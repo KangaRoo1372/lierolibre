@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WebLiero → LieroLibre Mod Converter</title>
+</head>
+<body>
+<h1>WebLiero → LieroLibre Mod Converter</h1>
+<p>Select .json or .json5 file to convert:</p>
+<input type="file" id="fileInput" accept=".json,.json5">
+<br>
+<p>Select .txt header file to implement:</p>
+<input type="file" id="headerInput" accept=".txt">
+<br><br>
+<label><input type="checkbox" id="convertConstants"> convert Constants &amp; Hacks</label>
+<br>
+<label><input type="checkbox" id="convertColorAnim"> convert colorAnim</label>
+<br><br>
+<button id="convertButton">Convert</button>
+<div id="downloadArea" style="margin-top:10px; display:none;">
+<a id="downloadLink" href="#">Download converted file</a>
+</div>
+<div id="warning" style="display:none;color:purple;">
+⚠ Warning, missing parameters detected (check the console)
+</div>
+<div id="warningarray" style="display:none;color:red;">
+⚠ Warning, weapons/wObjects max length array exceeded
+</div>
+<div id="warningarraynobjects" style="display:none;color:red;">
+⚠ Warning, nObjects max length array exceeded
+</div>
+<div id="warningarraysobjects" style="display:none;color:red;">
+⚠ Warning, sObjects max length array exceeded
+</div>
+<div id="warningnegative" style="display:none;color:orange;">
+⚠ Warning, negative value detected in some objects (check the console)
+</div>
+<div id="warningExt" style="display:none;color:maroon;">
+⚠ Warning, extended parameters detected (check the console)
+</div>
+<div id="warningtextures" style="display:none;color:navy;">
+⚠ Warning, textures array limit exceeded (check the console)
+</div>
+<div id="warningsprites" style="display:none;color:fuchsia;">
+⚠ Warning, spritesheet limit exceeded (check the console)
+</div>
+<div id="warningconstants" style="display:none;color:teal;">
+⚠ Warning, some constants/hacks/colorAnim were not converted (check the console)
+</div>
+<script type="text/javascript" src="json5.min.js"></script>
+<script type="text/javascript" src="script.js"></script>
+</body>
+</html>

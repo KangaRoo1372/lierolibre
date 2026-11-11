@@ -4,6 +4,8 @@ document.getElementById('convertButton').addEventListener('click', function() {
     const warningObjects = document.getElementById("warningobj");
     warningProperties.style.display = "none";
     warningObjects.style.display = "none";
+    // hide the download link from a previous conversion
+    document.getElementById('downloadArea').style.display = 'none';
     if (fileInput.files.length === 0 || headerInput.files.length === 0) {
         alert('Please select both files.');
         return;
@@ -348,14 +350,13 @@ cfgContent += '    };\n  };\n';
             // Add other fixed data
             cfgContent += Array(1).fill('Textures :\n{\ntextures0 :\n{\nnDrawBack = true;\nmFrame = 0;\nsFrame = 73;\nrFrame = 2;\n};\ntextures1 :\n{\nnDrawBack = true;\nmFrame = 1;\nsFrame = 73;\nrFrame = 2;\n};\ntextures2 :\n{\nnDrawBack = true;\nmFrame = 2;\nsFrame = 73;\nrFrame = 2;\n};\ntextures3 :\n{\nnDrawBack = true;\nmFrame = 37;\nsFrame = 73;\nrFrame = 2;\n};\ntextures4 :\n{\nnDrawBack = false;\nmFrame = 0;\nsFrame = 87;\nrFrame = 2;\n};\ntextures5 :\n{\nnDrawBack = true;\nmFrame = 39;\nsFrame = 73;\nrFrame = 2;\n};\ntextures6 :\n{\nnDrawBack = false;\nmFrame = 38;\nsFrame = 82;\nrFrame = 2;\n};\ntextures7 :\n{\nnDrawBack = true;\nmFrame = 99;\nsFrame = 73;\nrFrame = 2;\n};\ntextures8 :\n{\nnDrawBack = true;\nmFrame = 37;\nsFrame = 73;\nrFrame = 2;\n};\n};\nOthers :\n{\nbonusRandTimer = ( [ 3000, 2000 ], [ 2000, 2000 ] );\naiParams = ( [ 120, 120, 50, 50, 80, 300, 400 ], [ 20, 20, 20, 20, 80, 60, 1 ] );\nbonusSObjects = [ 0, 4 ];\n};').join('\n');
 
-            // Create and download the converted lierolibre CFG file
+            // Create the converted lierolibre CFG file and show the download link
             const blob = new Blob([cfgContent], { type: 'text/plain' });
-            const a = document.createElement('a');
-            a.href = URL.createObjectURL(blob);
-            a.download = 'lierocfg.txt';
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
+            const downloadLink = document.getElementById('downloadLink');
+            if (downloadLink.href.startsWith('blob:')) URL.revokeObjectURL(downloadLink.href);
+            downloadLink.href = URL.createObjectURL(blob);
+            downloadLink.download = 'lierocfg.txt';
+            document.getElementById('downloadArea').style.display = 'block';
         };
         reader.readAsText(file);
     };
